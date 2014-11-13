@@ -406,7 +406,8 @@ _EOF_
 		sudo sed /etc/openvpn/server.conf -i -e "s/proto udp/;proto udp/g" || oops "$LINENO: Error disabling OpenVPN server listening to UDP."
 		sudo sed /etc/openvpn/server.conf -i -e "s/;proto tcp/proto tcp/g" || oops "$LINENO: Error enabling OpenVPN server listening to TCP."
 	fi
-	sudo sed /etc/openvpn/server.conf -i -e "s/port 1194/port 443/g" || oops "$LINENO: Failing to set port number in OpenVPN server configuration."
+	sudo sed /etc/openvpn/server.conf -i -e "s/port 1194/port $OVPN_PORT/g" || oops "$LINENO: Failing to set port number in OpenVPN server configuration."
+	sudo sed /etc/openvpn/server.conf -i -e "s/server 10.8.0.0 255.255.255.0/server $OVPN_NETWORK $OVPN_MASK/g" || oops "$LINENO: Failing to set IP network and mask in OpenVPN server configuration."
 	if [ $PI_REVISION != "0000" ];
 	then
 		# Running on real Raspberry Pi hardware, restarting OpenVPN.
