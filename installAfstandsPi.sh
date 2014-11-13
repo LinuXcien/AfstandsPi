@@ -1,0 +1,1 @@
+installAfstandsPiVersion1.0.sh
