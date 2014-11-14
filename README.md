@@ -20,23 +20,23 @@ Creates a fully functional OpenVPN server from a Raspbian image (currently teste
 * Based on standard Raspbian
 
 ###Description:
-To streamline our installation process for the AfstandsPi Raspberry Pi based VPN product we build this installation script. The script takes a standard Raspbian installation and installs an OpenVPN server plus a lighttpd based webserver. Except for functions required to make the script work, the following functions are functional to create teh AfstandsPi. Each function can be switched on/off at the bottom of the script:
+To streamline our installation process for the AfstandsPi Raspberry Pi based VPN product we build this installation script. The script takes a standard Raspbian installation and installs an OpenVPN server plus a lighttpd based webserver. Except for functions required to make the script work, the following functions are functional to create the AfstandsPi. Each function can be switched on/off at the bottom of the script:
 * init: set here different variables, such as IP addresses, locale, keyboard, OpenVPN configuration etc.
-* silent_boot: boots Pi with only Raspberry log in top left corner, looks nices like that
+* silent_boot: boots Pi with only Raspberry log in top left corner, looks nicest like that
 * random_account: generates semi random (and valid) account name and adds account to system and sudoers
 * random_password: does what is says for the new account
-* diable_pi: disables the omnipresent Pi user
+* disable_pi: disables the omnipresent Pi user
 * make_interfaces: creates a static IP address by removing the interfaces file (makes backup first) and replacing it with variables set in init
 * set_hosts_name: does the same for the system host name
 * fix_locale: sets local to whatever is set in init
 * set_keyboard_layout: does the same for keyboard
 * set_timezone: does the same for timezone
-* install_vim: to get some colours while editing
+* install_vim: to get some colours while editing in vi
 * install_openvpn: does just that (and openssl)
-* configure_openvpn: from variables set in init creates a working OpenVPN configuration, generates CA, server and client keys/certificates, copies CA and server certs to /etc/openvpn
+* configure_openvpn: from variables set in init, creates a working OpenVPN configuration, generates CA, server and client keys/certificates, copies CA and server certs to /etc/openvpn
 * install_lighttpd: installs a web server and CGI/PHP for additional AfstandsPi functionality (such as Wake The Computer)
-* display_results: shows IP address and account information (make not of new account name and password, login as pi is not possible anymore at this point)
-Output of all commands are re-directed to a logfile in the same directory as where script is run.
+* display_results: shows IP address and account information (make note of new account name and password, because login as pi is not possible any more from this point)
+Output of all commands are re-directed to a logfile in the same directory as where script was ran.
 
 ###Installation:
 Download version 2014-09-09-wheezy-rasbian (other versions have not been tested).
@@ -53,7 +53,7 @@ OpenVPN configuration function, when done run the script:
 > ./installAfstandsPiVersion1.0.sh
 >
 
-WARNING: This script disabled the pi user and creates a new management account with a (semi) random name and 
+WARNING: This script disables the pi user and creates a new management account with a (semi) random name and 
 password. The name of the new account and password will only be shown when the script has finished. Make sure
-to make a not of the new account name and corresponding password.
+to make a note of the new account name and corresponding password.
 
